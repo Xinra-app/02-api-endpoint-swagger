@@ -1,0 +1,74 @@
+
+# Ignore Directory
+draft/
+
+
+# Ignore temporary and backup files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Ignore log files
+*.log
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore Windows specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignore IDE and editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore environment variable files
+.env
+.env.local
+.env.*.local
+
+# Ignore Python cache and virtual environment directories
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore Yarn and NPM specific files
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Ignore other common system and editor files
+*.directory
+*~
+
+
+
+# Ignore coverage reports
+coverage/
+*.lcov
+
+# Ignore archives and compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+
