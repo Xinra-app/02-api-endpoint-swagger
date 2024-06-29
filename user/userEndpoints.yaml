@@ -1,0 +1,31 @@
+openapi: 3.0.0
+
+info:
+  title: User - API Endpoint
+  description: The Xinra User API provides endpoints for managing user-related operations within the Xinra App. This includes user authentication, profile management, and accessing user statistics. These endpoints enable developers to seamlessly integrate user functionalities of the Xinra App into their applications or services.
+  version: 1.0.0
+
+servers:
+  - url: http://api.xinra.com/v1/user
+
+tags:
+  - name: Authentication
+    description: Operations related to user authentication, including login, logout, and registration.
+  - name: Profile
+    description: Operations related to managing user profiles, including retrieving, updating, and deleting user information.
+
+paths:
+  # Authentication
+  /login:
+    $ref: ./paths/login.yaml
+  /register:
+    $ref: ./paths/register.yaml
+  /{userId}:
+    $ref: ./paths/user.yaml
+  /{userId}/logout:
+    $ref: ./paths/logout.yaml
+  # Profile
+  /{userId}/profile:
+    $ref: ./paths/profile.yaml
+  /{userId}/statistics:
+    $ref: ./paths/statistics.yaml

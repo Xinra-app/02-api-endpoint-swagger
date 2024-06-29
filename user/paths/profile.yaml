@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Profile
+  summary: Get a user Profile info
+  description: Retrieved the Profile information of a specific user.
+  parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 12345
+  responses:
+    200:
+      description: User Profile information retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/userProfile.yaml#/components/schemas/UserProfile'
+
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'
+
+
+put:
+  tags:
+    - Profile
+  summary: Updates the Profile info
+  description: Updates the Profile information of a specific user.
+  parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 12345
+  responses:
+    200:
+      description: User Profile information retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/userProfile.yaml#/components/schemas/UserProfile'
+
+
+
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'
+

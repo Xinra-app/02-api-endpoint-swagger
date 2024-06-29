@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Profile
+  summary: Get a user Statistics info
+  description: Retrieved the statistics of a specific user.
+  parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 12345
+  responses:
+    200:
+      description: User Statistics retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              score:
+                type: int
+                example: 1520
+              day_streak:
+                type: int
+                example: 56
+              achievements:
+                type: array
+                example: [achivements#1, achivements#2, achivements#3]
+    
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'

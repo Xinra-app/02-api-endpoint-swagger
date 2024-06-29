@@ -1,0 +1,124 @@
+get:
+  tags:
+    - Authentication
+  summary: Get user info
+  description: Retrieves the information of a specific user.
+  parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 12345
+  responses:
+    200:
+      description: User info retrieved successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+                example: 12345
+              username:
+                type: string
+                example: john_doe
+              email:
+                type: string
+                example: john.doe@example.com
+              createdAt:
+                type: string
+                format: date-time
+                example: 2023-06-24T14:12:00Z
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'
+
+put:
+  tags:
+    - Authentication
+  summary: Update user info
+  description: Updates the information of a specific user.
+  parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 12345
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              example: john_doe_updated
+            email:
+              type: string
+              example: john.doe_updated@example.com
+          required:
+            - username
+            - email
+  responses:
+    200:
+      description: User info updated successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+                example: 12345
+              username:
+                type: string
+                example: john_doe_updated
+              email:
+                type: string
+                example: john.doe_updated@example.com
+              updatedAt:
+                type: string
+                format: date-time
+                example: 2023-06-24T14:12:00Z
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'
+
+delete:
+  tags:
+    - Authentication
+  summary: Delete user
+  description: Deletes a specific user.
+  parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+        example: 12345
+  responses:
+    204:
+      description: User successfully deleted
+
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'

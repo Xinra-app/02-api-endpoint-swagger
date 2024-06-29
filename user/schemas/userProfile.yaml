@@ -1,0 +1,41 @@
+components:
+  schemas:
+    UserProfile:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: 12345
+        username:
+          type: string
+          example: john_doe
+        email:
+          type: string
+          example: john.doe@example.com
+        phone_number:
+          type: string
+          example: +8618468060056
+        full_name:
+          type: string
+          example: Johan Doe
+        gender:
+          type: string
+          enum: [Male, Female]
+        country:
+          type: string
+          example: China
+        education:
+          type: string
+          example: University of Oxford
+        profession:
+          type: string
+          example: Software Engineer
+        social_accounts:
+          type: object
+          properties:
+            facebook:
+              type: string
+              example: username
+            tiktok:
+              type: string
+              example: username

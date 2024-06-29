@@ -1,0 +1,56 @@
+post:
+  tags:
+    - Authentication
+  summary: Register a new user
+  description: Registers a new user with the provided details.
+  requestBody:
+    required: true  
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              example: john_doe
+            password:
+              type: string
+              example: SecurePassword123
+            email:
+              type: string
+              example: john.doe@example.com
+          required:
+            - username
+            - password
+            - email
+  responses:
+    201:
+      description: User successfully registered
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+                example: 12345
+              username:
+                type: string
+                example: john_doe
+              email:
+                type: string
+                example: john.doe@example.com
+              token:
+                type: string
+                example: abcde12345
+
+
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'
+
