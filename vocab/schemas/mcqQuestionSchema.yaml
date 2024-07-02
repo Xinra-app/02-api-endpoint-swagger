@@ -1,0 +1,30 @@
+components:
+  schemas:
+    MCQ:
+      type: object
+      properties:
+        questionId:
+          type: integer
+          example: 7
+        question:
+          type: string
+          example: Duo to threat of __blank__, it is unsafe to build on the land.
+        answer:
+          type: string
+          example: erosion
+        options:
+          type: array
+          example: [chemical, climate, dispose, erosion]
+
+    ArrayOfMCQ:
+      type: array
+      items:
+        oneOf:
+          - $ref: '#/components/schemas/MCQ'
+          - $ref: '#/components/schemas/MCQ'
+          - $ref: '#/components/schemas/MCQ'
+          - $ref: '#/components/schemas/MCQ'
+      maxItems: 10
+
+
+        

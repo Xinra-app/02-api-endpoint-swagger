@@ -1,0 +1,37 @@
+get:
+  tags:
+    - Blank
+  summary: Get 10 Fill in the Blank questions.
+  description: Retrieves 10 questions.
+  parameters:
+    - name: limit
+      in: query
+      required: true
+      description: Number of items to return
+      schema:
+        type: integer
+        example: 10
+    - name: offset
+      in: query
+      required: true
+      description: Number of items to skip before starting to collect the result set
+      schema:
+        type: integer
+        example: 20
+
+  responses:
+    200:
+      description: Fill in the Blank questions retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/blankQuestionSchema.yaml#/components/schemas/ArrayOfBlank'
+
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'

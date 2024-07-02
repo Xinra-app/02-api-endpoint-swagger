@@ -1,0 +1,29 @@
+get:
+  tags:
+    - MCQ
+  summary: Get a MCQ question.
+  description: Retrieves a specific question.
+  parameters:
+    - name: questionId
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 7
+
+  responses:
+    200:
+      description: MCQ question retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/mcqQuestionSchema.yaml#/components/schemas/MCQ'
+
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'

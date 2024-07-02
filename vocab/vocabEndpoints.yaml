@@ -1,0 +1,28 @@
+openapi: 3.0.0
+
+info:
+  title: Vocab - API Endpoint
+  description: The Xinra Vocab API provides endpoints for managing vocabulary learning operations within the Xinra App. This includes multiple-choice questions (MCQ) and fill-in-the-blank exercises, tailored to help users improve their language proficiency.
+  version: 1.0.0
+
+servers:
+  - url: http://api.xinra.com/v1/vocab
+    description: The base URL for accessing the Xinra Vocab API. Use this URL to access all vocabulary-related endpoints provided by the API.
+
+tags:
+  - name: MCQ
+    description: Operations related to multiple-choice questions.
+  - name: Blank
+    description: Operations related to fill-in-the-blank exercises.
+
+paths:
+  # MCQ
+  /mcq:
+    $ref: './paths/allMcqQuestions.yaml'
+  /mcq/{questionId}:
+    $ref: './paths/mcqQuestionById.yaml'
+  # Blank
+  /blank:
+    $ref: './paths/allBlankQuestions.yaml'
+  /blank/{questionId}:
+    $ref: './paths/blankQuestionById.yaml'

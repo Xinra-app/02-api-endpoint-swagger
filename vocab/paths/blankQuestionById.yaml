@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Blank
+  summary: Get a Fill in the Blank question.
+  description: Retrieves a specific question.
+  parameters:
+    - name: questionId
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 7
+
+  responses:
+    200:
+      description: Fill in the Blank questions retrieved successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/blankQuestionSchema.yaml#/components/schemas/Blank'
+
+    400:
+      $ref: '../components/errors.yaml#/components/responses/BadRequest'
+    401:
+      $ref: '../components/errors.yaml#/components/responses/Unauthorized'
+    403: 
+      $ref: '../components/errors.yaml#/components/responses/Forbidden'
+    404:  
+      $ref: '../components/errors.yaml#/components/responses/NotFound'
